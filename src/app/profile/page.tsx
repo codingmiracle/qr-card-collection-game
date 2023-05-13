@@ -14,7 +14,6 @@ export default async function Profile() {
         redirect('/');
     }
 
-    // @ts-ignore
     return (
         <div className="card">
             <h2>User Profile</h2>
@@ -22,6 +21,7 @@ export default async function Profile() {
             <div className="heading">Last Signed In:</div>
             <code
                 className="highlight">{new Date(user.last_sign_in_at ? user.last_sign_in_at : "").toUTCString()}</code>
+
             <Link className="button" href="/">
                 Go Home
             </Link>
