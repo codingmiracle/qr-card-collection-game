@@ -60,7 +60,7 @@ const ResetPassword = () => {
                     )}
                 </Formik>
                 {errorMsg && <div className="text-center text-red-600">{errorMsg}</div>}
-                {successMsg && <div className="text-center text-black">{successMsg}</div>}
+                {successMsg && <div className="text-center text-green-400">{successMsg}</div>}
                 <button className="link w-full" type="button" onClick={() => setView(VIEWS.SIGN_IN)}>
                     Remember your password? Sign In.
                 </button>

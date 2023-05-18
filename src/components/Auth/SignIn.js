@@ -55,7 +55,7 @@ const SignIn = () => {
                             {errors.password && touched.password ? (
                                 <div className={"text-red-600"}>{errors.password}</div>) : null}
                         </div>
-                        <button className={"link w-full text-right"} onClick={() => {
+                        <button className={"link w-full text-right"} type={"button"} onClick={() => {
                             setView(VIEWS.FORGOTTEN_PASSWORD)
                         }}>Forgot your Password?
                         </button>
