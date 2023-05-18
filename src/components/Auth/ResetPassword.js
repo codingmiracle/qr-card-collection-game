@@ -30,40 +30,42 @@ const ResetPassword = () => {
     }
 
     return (
-        <div className="card">
-            <h2 className="w-full text-center">Forgot Password</h2>
-            <Formik
-                initialValues={{
-                    email: '',
-                }}
-                validationSchema={ResetPasswordSchema}
-                onSubmit={resetPassword}
-            >
-                {({errors, touched}) => (
-                    <Form className="column w-full">
-                        <label htmlFor="email">Email</label>
-                        <Field
-                            className={cn('input', errors.email && 'bg-red-50')}
-                            id="email"
-                            name="email"
-                            placeholder="jane@acme.com"
-                            type="email"
-                        />
-                        {errors.email && touched.email ? (
-                            <div className="text-red-600">{errors.email}</div>
-                        ) : null}
-                        <button className="button-inverse w-full" type="submit">
-                            Send Instructions
-                        </button>
-                    </Form>
-                )}
-            </Formik>
-            {errorMsg && <div className="text-center text-red-600">{errorMsg}</div>}
-            {successMsg && <div className="text-center text-black">{successMsg}</div>}
-            <button className="link" type="button" onClick={() => setView(VIEWS.SIGN_IN)}>
-                Remember your password? Sign In.
-            </button>
-        </div>
+        <section className={"flex-center"}>
+            <div className="card">
+                <h3>Forgot Password</h3>
+                <Formik
+                    initialValues={{
+                        email: '',
+                    }}
+                    validationSchema={ResetPasswordSchema}
+                    onSubmit={resetPassword}
+                >
+                    {({errors, touched}) => (
+                        <Form className="column w-full">
+                            <div className={"column gap-1 w-full"}>
+                                <label htmlFor={"email"}>E-Mail</label>
+                                <Field
+                                    className={cn('input w-full', errors.email && touched.email && 'border-red-600')}
+                                    name="email"
+                                    type="email"
+                                    placeholder={"you@example.com"}
+                                />
+                                {errors.email && touched.email ? (
+                                    <div className={"text-red-600"}>{errors.email}</div>) : null}
+                            </div>
+                            <button className="button w-full" type="submit">
+                                Send Instructions
+                            </button>
+                        </Form>
+                    )}
+                </Formik>
+                {errorMsg && <div className="text-center text-red-600">{errorMsg}</div>}
+                {successMsg && <div className="text-center text-black">{successMsg}</div>}
+                <button className="link w-full" type="button" onClick={() => setView(VIEWS.SIGN_IN)}>
+                    Remember your password? Sign In.
+                </button>
+            </div>
+        </section>
     );
 };
 

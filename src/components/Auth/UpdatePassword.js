@@ -15,7 +15,7 @@ const UpdatePassword = () => {
     const [errorMsg, setErrorMsg] = useState(null);
 
     async function updatePassword(formData) {
-        const {data, error} = await supabase.auth.updateUser({
+        const {error} = await supabase.auth.updateUser({
             password: formData.password,
         });
 
@@ -25,35 +25,37 @@ const UpdatePassword = () => {
     }
 
     return (
-        <div className="card">
-            <h2 className="w-full text-center">Update Password</h2>
-            <Formik
-                initialValues={{
-                    password: '',
-                }}
-                validationSchema={UpdatePasswordSchema}
-                onSubmit={updatePassword}
-            >
-                {({errors, touched}) => (
-                    <Form className="column w-full">
-                        <label htmlFor="email">New Password</label>
-                        <Field
-                            className={cn('input', errors.password && touched.password && 'bg-red-50')}
-                            id="password"
-                            name="password"
-                            type="password"
-                        />
-                        {errors.password && touched.password ? (
-                            <div className="text-red-600">{errors.password}</div>
-                        ) : null}
-                        <button className="button-inverse w-full" type="submit">
-                            Update Password
-                        </button>
-                    </Form>
-                )}
-            </Formik>
-            {errorMsg && <div className="text-red-600">{errorMsg}</div>}
-        </div>
+        <section className={"flex-center"}>
+            <div className="card">
+                <h3>Update Password</h3>
+                <Formik
+                    initialValues={{
+                        password: '',
+                    }}
+                    validationSchema={UpdatePasswordSchema}
+                    onSubmit={updatePassword}
+                >
+                    {({errors, touched}) => (
+                        <Form className="column w-full">
+                            <div className={"column gap-1 w-full"}>
+                                <label htmlFor={"password"}>Password</label>
+                                <Field
+                                    className={cn('input w-full', errors.password && touched.password && 'border-red-600')}
+                                    name="password"
+                                    type="password"
+                                />
+                                {errors.password && touched.password ? (
+                                    <div className={"text-red-600"}>{errors.password}</div>) : null}
+                            </div>
+                            <button className="button w-full" type="submit">
+                                Update Password
+                            </button>
+                        </Form>
+                    )}
+                </Formik>
+                {errorMsg && <div className="text-red-600">{errorMsg}</div>}
+            </div>
+        </section>
     );
 };
 
