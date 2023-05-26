@@ -4,43 +4,50 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-rgb: 255, 255, 255;
+  --true-blue: #0466c8ff;
+  --sapphire: #0353a4ff;
+  --yale-blue: #023e7dff;
+  --oxford-blue: #002855ff;
+  --oxford-blue-2: #001845ff;
+  --oxford-blue-3: #001233ff;
+  --delft-blue: #33415cff;
+  --paynes-gray: #5c677dff;
+  --slate-gray: #7d8597ff;
+  --cool-gray: #979dacff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-rgb: 0, 0, 0;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(var(--background-rgb))
 }
 
 @layer base {
   h2 {
-    @apply py-4 text-4xl font-black text-gray-800;
+    @apply py-4 text-4xl;
+  }
+
+  h3 {
+    @apply py-4 text-2xl;
   }
 
   .button {
-    @apply custom-focus rounded-full border-2 border-green-400 bg-white px-8 py-2 font-bold text-green-400 hover:bg-green-400 hover:text-white focus:bg-green-400 focus:text-white;
+    @apply custom-focus p-2 rounded-md bg-green-400 text-sm text-white hover:bg-green-500 duration-300;
   }
 
   .button-inverse {
-    @apply custom-focus rounded-full border-2 border-white bg-green-400 px-8 py-2 font-bold text-white hover:border-green-400 hover:bg-white hover:text-green-400 focus:border-green-400 focus:bg-white focus:text-green-400;
+    @apply custom-focus p-2 rounded-md bg-transparent text-sm text-green-400 border-2 border-green-400 hover:bg-green-400 hover:text-white hover:dark:text-black;
   }
 
   .card {
-    @apply column min-w-[20rem] items-center gap-8 rounded-2xl bg-white py-8 px-4 shadow-md sm:min-w-[24rem] sm:px-10;
+    @apply column bg-zinc-800 flex rounded-md shadow-xl shadow-zinc-100 p-5 min-w-[20rem] dark:shadow-zinc-950 text-white;
   }
 
   .column {
@@ -48,7 +55,7 @@ body {
   }
 
   .custom-focus {
-    @apply focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2;
+    @apply focus:border-green-400 focus:outline-none focus:ring-1 focus:ring-green-400;
   }
 
   .heading {
@@ -56,7 +63,7 @@ body {
   }
 
   .highlight {
-    @apply ml-1 rounded-lg bg-gray-100 p-2 font-mono;
+    @apply ml-1 rounded-lg bg-zinc-100 text-black p-2 font-mono dark:bg-zinc-900 dark:text-white;
   }
 
   .error {
@@ -64,14 +71,22 @@ body {
   }
 
   .input {
-    @apply custom-focus w-full rounded-xl border border-slate-300 focus:shadow-none;
+    @apply custom-focus p-2 rounded-md border-gray-500 bg-transparent text-sm text-gray-500;
+  }
+
+  .input-error {
+    @apply input border-red-600
   }
 
   .link {
-    @apply custom-focus rounded-md font-semibold text-green-400;
+    @apply rounded-md text-green-400 underline text-sm;
   }
 
   .row {
     @apply flex flex-row items-center justify-start gap-1;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center;
   }
 }
