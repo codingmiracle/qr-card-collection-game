@@ -31,7 +31,7 @@ export default function Home() {
           </div>
         </div>
 
-        <Link className={"button z-10"} href={"/login"}>
+        <Link className={"button-inverse z-10"} href={"/login"}>
           Go Login
         </Link>
 

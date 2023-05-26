@@ -3,7 +3,7 @@ import {Inter} from 'next/font/google'
 import React from "react";
 import {AuthProvider} from "@/components/AuthProvider";
 import {createClient} from "@/lib/supabase-server";
-import Head from "next/head";
+import Header from "@/app/header";
 
 const inter = Inter({subsets: ['latin'], preload: true, weight: "300"})
 
@@ -20,12 +20,13 @@ export default async function RootLayout({children,}: {
 
     return (
         <html lang="en">
-        <Head>
+        <head>
             <title>qr-card-collection-game</title>
-            <link rel="icon" href="../../public/favicon.ico"/>
+            <link rel="icon" href="favicon.ico"/>
             <meta name="viewport" content="width=device-width"/>
-        </Head>
+        </head>
         <body className={inter.className}>
+        <Header/>
         <h1 className="mb-12 text-5xl sm:text-6xl">
             Title <span className="font-black text-green-400"> Highlight </span>
         </h1>

@@ -16,7 +16,6 @@ const SignIn = () => {
     const [errorMsg, setErrorMsg] = useState(null);
 
     async function onSubmit(formData) {
-        console.log(formData)
         const {error} = await supabase.auth.signInWithPassword({
             email: formData.email, password: formData.password,
         });
