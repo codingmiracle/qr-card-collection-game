@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -17,6 +19,8 @@
   --cool-gray: #979dacff;
 }
 
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -31,7 +35,7 @@ body {
 
 @layer base {
   h2 {
-    @apply py-4 text-4xl;
+    @apply py-4 text-4xl z-10;
   }
 
   h3 {
@@ -39,11 +43,11 @@ body {
   }
 
   .button {
-    @apply custom-focus p-2 rounded-md bg-green-400 text-sm text-white hover:bg-green-500 duration-300;
+    @apply custom-focus h-10 px-5 rounded-full font-bold bg-green-400 text-base text-white hover:bg-green-500 duration-300;
   }
 
   .button-inverse {
-    @apply custom-focus p-2 rounded-md bg-transparent text-sm text-green-400 border-2 border-green-400 hover:bg-green-400 hover:text-white hover:dark:text-black;
+    @apply custom-focus h-10 px-5 rounded-full font-bold bg-transparent text-base text-green-400 border-2 border-green-400 hover:bg-green-400 hover:text-white hover:dark:text-black;
   }
 
   .card {

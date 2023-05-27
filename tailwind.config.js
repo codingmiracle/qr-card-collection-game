@@ -16,6 +16,13 @@ module.exports = {
       },
     },
   },
+  theme: {
+      extend: {
+        fontFamily: {
+          'archivo': ['Archivo Black', 'sans-serif'],
+        },
+      },
+    },
   darkMode: 'media',
   plugins: [forms],
 }

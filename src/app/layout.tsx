@@ -27,8 +27,9 @@ export default async function RootLayout({children,}: {
         </head>
         <body className={inter.className}>
         <Header/>
-        <h1 className="mb-12 text-5xl sm:text-6xl">
-            Title <span className="font-black text-green-400"> Highlight </span>
+        <h1 className="mb-12 text-5xl sm:text-6xl font-archivo">
+            HTL <span className="font-archivo text-green-400"> GAME </span>
+            
         </h1>
         <AuthProvider accessToken={accessToken}>
             {children}
