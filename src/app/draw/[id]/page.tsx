@@ -19,6 +19,7 @@ export default async function Page({params}: { params: { id: string } }) {
         );
     }
 
+
     const qr = await supabase.rpc('is_qr_in_table', {code: params.id});
     const scan = await supabase.rpc('is_scan_in_table', {code: params.id, uid: user.id})
     let validation = (<h3 className="highlight text-red-600">Invalid</h3>);
@@ -41,6 +42,7 @@ export default async function Page({params}: { params: { id: string } }) {
                 <h3 className={"highlight"}>qr: {JSON.stringify(qr.data)} scan:{JSON.stringify(scan.data)}</h3>
                 {validation}
                 {qr.error && (<h3 className={"highlight text-red-600"}>error: {JSON.stringify(qr.error)}</h3>)}
+
             </div>
         </section>
     );

@@ -52,6 +52,7 @@ body {
         @apply custom-focus p-2 rounded-md bg-transparent text-sm text-green-400 border-2 border-green-400 hover:bg-green-400 hover:text-white hover:dark:text-black;
     }
 
+
     .card {
         @apply column bg-zinc-800 flex rounded-md shadow-xl shadow-zinc-100 p-5 min-w-[20rem] dark:shadow-zinc-950 text-white;
     }
