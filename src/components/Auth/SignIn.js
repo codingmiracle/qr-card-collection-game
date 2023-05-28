@@ -1,7 +1,7 @@
 'use client';
 
 import {useState} from 'react';
-import {useAuth, VIEWS} from 'src/components/AuthProvider';
+import {useAuth, VIEWS} from 'src/components/Auth/AuthProvider';
 import supabase from 'src/lib/supabase-browser';
 import {Field, Form, Formik} from "formik";
 import * as Yup from "yup";

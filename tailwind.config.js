@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {plugin | ((options?: Partial<{strategy: "base" | "class"}>) => {handler: () => void})} */
 const forms = require('@tailwindcss/forms');
 
 module.exports = {
