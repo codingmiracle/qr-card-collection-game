@@ -1,6 +1,6 @@
 'use client';
 
-import {useAuth, VIEWS} from 'src/components/AuthProvider';
+import {useAuth, VIEWS} from 'src/components/Auth/AuthProvider';
 
 import ResetPassword from './ResetPassword';
 import SignIn from './SignIn';

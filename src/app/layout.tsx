@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import {Inter} from 'next/font/google'
 import React from "react";
-import {AuthProvider} from "@/components/AuthProvider";
+import {AuthProvider} from "@/components/Auth/AuthProvider";
 import {createClient} from "@/lib/supabase-server";
 import Header from "@/app/header";
 

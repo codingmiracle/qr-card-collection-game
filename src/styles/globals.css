@@ -30,33 +30,39 @@ body {
 }
 
 @layer base {
-  h2 {
-    @apply py-4 text-4xl;
-  }
+    body {
+        @apply overflow-x-hidden
+    }
 
-  h3 {
-    @apply py-4 text-2xl;
-  }
+    h2 {
+        @apply py-4 text-4xl;
+    }
 
-  .button {
-    @apply custom-focus p-2 rounded-md bg-green-400 text-sm text-white hover:bg-green-500 duration-300;
-  }
+    h3 {
+        @apply py-4 text-2xl;
+    }
+}
 
-  .button-inverse {
-    @apply custom-focus p-2 rounded-md bg-transparent text-sm text-green-400 border-2 border-green-400 hover:bg-green-400 hover:text-white hover:dark:text-black;
-  }
+@layer components {
+    .button {
+        @apply custom-focus p-2 rounded-md bg-green-400 text-sm text-white hover:bg-green-500 duration-300;
+    }
 
-  .card {
-    @apply column bg-zinc-800 flex rounded-md shadow-xl shadow-zinc-100 p-5 min-w-[20rem] dark:shadow-zinc-950 text-white;
-  }
+    .button-inverse {
+        @apply custom-focus p-2 rounded-md bg-transparent text-sm text-green-400 border-2 border-green-400 hover:bg-green-400 hover:text-white hover:dark:text-black;
+    }
 
-  .column {
-    @apply flex flex-col items-start justify-center gap-4;
-  }
+    .card {
+        @apply column bg-zinc-800 flex rounded-md shadow-xl shadow-zinc-100 p-5 min-w-[20rem] dark:shadow-zinc-950 text-white;
+    }
 
-  .custom-focus {
-    @apply focus:border-green-400 focus:outline-none focus:ring-1 focus:ring-green-400;
-  }
+    .column {
+        @apply flex flex-col items-start justify-center gap-4;
+    }
+
+    .custom-focus {
+        @apply focus:border-green-400 focus:outline-none focus:ring-1 focus:ring-green-400;
+    }
 
   .heading {
     @apply text-lg font-semibold text-gray-700;
