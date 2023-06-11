@@ -33,7 +33,7 @@ const SignUp = () => {
 
     return (
         <section className={"flex-center"}>
-            <div className="card">
+            <div className="card-container">
                 <h3>Create Account</h3>
                 <Formik
                     initialValues={{

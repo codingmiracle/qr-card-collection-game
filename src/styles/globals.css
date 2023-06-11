@@ -3,30 +3,29 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
-  --true-blue: #0466c8ff;
-  --sapphire: #0353a4ff;
-  --yale-blue: #023e7dff;
-  --oxford-blue: #002855ff;
-  --oxford-blue-2: #001845ff;
-  --oxford-blue-3: #001233ff;
-  --delft-blue: #33415cff;
-  --paynes-gray: #5c677dff;
-  --slate-gray: #7d8597ff;
-  --cool-gray: #979dacff;
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 26, 26, 26;
+    --true-blue: #0466c8ff;
+    --sapphire: #0353a4ff;
+    --yale-blue: #023e7dff;
+    --oxford-blue: #002855ff;
+    --oxford-blue-2: #001845ff;
+    --oxford-blue-3: #001233ff;
+    --delft-blue: #33415cff;
+    --paynes-gray: #5c677dff;
+    --slate-gray: #7d8597ff;
+    --cool-gray: #979dacff;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-rgb: 0, 0, 0;
-  }
+    :root {
+
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb))
+    color: rgb(var(--foreground-rgb));
+    background: rgb(var(--background-rgb))
 }
 
 @layer base {
@@ -45,15 +44,14 @@ body {
 
 @layer components {
     .button {
-        @apply custom-focus p-2 rounded-md bg-green-400 text-sm text-white hover:bg-green-500 duration-300;
+        @apply custom-focus p-2 rounded-md bg-teal-500 text-sm text-white hover:bg-teal-600 duration-300;
     }
 
     .button-inverse {
-        @apply custom-focus p-2 rounded-md bg-transparent text-sm text-green-400 border-2 border-green-400 hover:bg-green-400 hover:text-white hover:dark:text-black;
+        @apply custom-focus p-2 rounded-md bg-transparent text-sm text-teal-400 border-2 border-teal-400 hover:bg-teal-400 hover:text-white hover:dark:text-black;
     }
 
-
-    .card {
+    .card-container {
         @apply column bg-zinc-800 flex rounded-md shadow-xl shadow-zinc-100 p-5 min-w-[20rem] dark:shadow-zinc-950 text-white;
     }
 
@@ -62,38 +60,43 @@ body {
     }
 
     .custom-focus {
-        @apply focus:border-green-400 focus:outline-none focus:ring-1 focus:ring-green-400;
+        @apply focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500;
     }
 
-  .heading {
-    @apply text-lg font-semibold text-gray-700;
-  }
+    .heading {
+        @apply text-lg font-semibold text-gray-700;
+    }
 
-  .highlight {
-    @apply ml-1 rounded-lg bg-zinc-100 text-black p-2 font-mono dark:bg-zinc-900 dark:text-white;
-  }
+    .highlight {
+        @apply rounded-lg bg-zinc-100 text-black p-2 font-mono dark:bg-zinc-900 dark:text-white;
+    }
 
-  .error {
-    @apply w-full text-center text-red-600;
-  }
+    .error {
+        @apply w-full text-center text-red-600;
+    }
 
-  .input {
-    @apply custom-focus p-2 rounded-md border-gray-500 bg-transparent text-sm text-gray-500;
-  }
+    .input {
+        @apply custom-focus p-2 rounded-md border-gray-500 bg-transparent text-sm text-gray-500;
+    }
 
-  .input-error {
-    @apply input border-red-600
-  }
+    .input-error {
+        @apply input border-red-600
+    }
 
-  .link {
-    @apply rounded-md text-green-400 underline text-sm;
-  }
+    .link {
+        @apply rounded-md text-teal-500 underline text-sm;
+    }
 
-  .row {
-    @apply flex flex-row items-center justify-start gap-1;
-  }
+    .row {
+        @apply flex flex-row items-center justify-start gap-1;
+    }
 
-  .flex-center {
-    @apply flex items-center justify-center;
-  }
+    .flex-center {
+        @apply flex items-center justify-center;
+    }
+
+    .grid-container {
+        border: 1px solid;
+        @apply grid gap-3 grid-flow-row md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 p-3 border-zinc-800 rounded-xl bg-gradient-to-t from-zinc-900
+    }
 }

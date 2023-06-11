@@ -12,7 +12,7 @@ export default function Home() {
     if (initial) {
         return (
             <section className="flex-center">
-                <div className={"card"}>
+                <div className={"card-container"}>
                     <Loader/>
                 </div>
             </section>
@@ -26,7 +26,7 @@ export default function Home() {
     if (user) {
         return (
             <section className={"flex-center"}>
-                <div className="card w-fit">
+                <div className="card-container w-fit">
                     <h2>Welcome!</h2>
                     <code className="highlight m-0">{user.role}</code>
                     <Link className="link w-full" href={"/profile"}>
