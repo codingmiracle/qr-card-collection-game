@@ -11,7 +11,7 @@ export default function Home() {
 
     if (initial) {
         return (
-            <section className="flex-center">
+            <section className="flex-center mt-4">
                 <div className={"card-container"}>
                     <Loader/>
                 </div>
@@ -20,18 +20,23 @@ export default function Home() {
     }
 
     if (view === VIEWS.UPDATE_PASSWORD) {
-        return <Auth view={view}/>;
+        return (
+            <section className={"flex-center mt-4"}>
+                <Auth view={view}/>
+            </section>
+        );
     }
 
     if (user) {
         return (
-            <section className={"flex-center"}>
+            <section className={"flex-center mt-4"}>
                 <div className="card-container w-fit">
                     <h2>Welcome!</h2>
-                    <code className="highlight m-0">{user.role}</code>
-                    <Link className="link w-full" href={"/profile"}>
-                        Go to Profile
-                    </Link>
+                    <div className={"card-outline-container m-0"}>
+                        <h3>Get started by scanning QR-Codes!</h3>
+                        <Link href={"/draw"} className={"link"}>scan funktioniert nicht</Link>
+                    </div>
+
                     <button type="button" className="button w-full" onClick={signOut}>
                         Sign Out
                     </button>
@@ -40,5 +45,9 @@ export default function Home() {
         );
     }
 
-    return <Auth view={view}/>;
+    return (
+        <section className={"flex-center mt-4"}>
+            <Auth view={view}/>
+        </section>
+    );
 }

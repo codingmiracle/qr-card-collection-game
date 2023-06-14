@@ -15,7 +15,7 @@ export default async function Profile() {
     }
 
     return (
-        <section className="flex-center">
+        <section className="flex-center mt-4">
             <div className="card-container">
                 <h2>User Profile</h2>
                 <code className="highlight m-0">{user.email}</code>
