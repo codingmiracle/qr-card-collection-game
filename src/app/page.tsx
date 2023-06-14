@@ -21,7 +21,7 @@ export default async function Home() {
                         <Image src="/htlel.svg" width={200} height={200} className="screen-icon" alt={"-x-"}></Image>
                         <div className="name mx-8">HTLEL</div>
                         <div className={"row w-full"}>
-                            <Link href={"/login"} className={"button w-1/2"}>get started</Link>
+                            <Link href={"/draw"} className={"button w-1/2"}>get started</Link>
                             <Link href={"#tutorial"} className={"button-inverse w-1/2"}>Info</Link>
                         </div>
                     </div>

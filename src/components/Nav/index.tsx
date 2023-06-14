@@ -26,8 +26,8 @@ export default function Nav() {
                         </div>
                     </>
                 ) : (
-                    <Link href={"/login"} className={"button-inverse justify-self-end px-10"}>
-                        Login
+                    <Link href={"/login"} className={"button-inverse justify-self-end px-2"}>
+                        Sign In
                     </Link>
                 )}
             </div>

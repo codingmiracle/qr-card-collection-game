@@ -52,6 +52,14 @@
     h3 {
         @apply py-4 text-2xl;
     }
+
+    ul {
+        @apply max-w-md space-y-4
+    }
+
+    li {
+        @apply flex items-center justify-start
+    }
 }
 
 @layer components {
@@ -197,7 +205,7 @@
     }
 
     .screen-image {
-        background-image: url("https://hzvtlwbfqvmrppbgpopu.supabase.co/storage/v1/object/public/card_images/WIJU_4_V2.png");
+        background-image: url("https://hzvtlwbfqvmrppbgpopu.supabase.co/storage/v1/object/public/card_images/WIJU_1.png");
         height: 100%;
         width: 100%;
         position: absolute;
