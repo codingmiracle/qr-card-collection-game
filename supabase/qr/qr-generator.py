@@ -5,6 +5,7 @@ import random
 
 import dotenv
 import qrcode
+
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 from supabase import create_client, Client
 
@@ -22,6 +23,7 @@ key: str = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
 supabase: Client = create_client(url, key)
 ms = ImageFont.FreeTypeFont('assets/Montserrat-Bold.ttf', size=32, )
 os.mkdir(foldername)
+
 
 data = random.randint(111111, 999999)
 imagenames = [data]
@@ -47,5 +49,6 @@ for code in imagenames:
         blend_img = Image.open("assets/common4.png").resize((410, 410))
     qr_image.paste(blend_img, (0, 0), blend_img)
     ImageOps.expand(qr_image, border=10, fill='white').save(foldername + str(rarity) + "r" + str(code) + ".png")
+    
     print(supabase.table('qr').insert({"code": code, "rarity": rarity}).execute())
     numcards += 1
