@@ -2,6 +2,7 @@ import Card from "../../components/Card";
 import React from "react";
 
 export default function TestPage() {
+    // @ts-ignore
     return (
         <div>
             <section className="flex-center">

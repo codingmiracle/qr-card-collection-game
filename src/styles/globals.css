@@ -60,7 +60,8 @@
     }
 
     .button-inverse {
-        @apply custom-focus p-2 rounded-md bg-transparent text-center text-sm text-primary-500 border-2 border-primary-500 hover:bg-primary-500 hover:text-black;
+        border: 1px solid;
+        @apply custom-focus p-2 rounded-md bg-transparent text-center text-sm text-primary-500 border-primary-500 hover:bg-primary-500 hover:text-white;
     }
 
     .card-container {

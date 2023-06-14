@@ -19,13 +19,16 @@ export default async function Home() {
                     <div className="screen-overlay"></div>
                     <div className="card-outline-container flex-center z-10">
                         <Image src="/htlel.svg" width={200} height={200} className="screen-icon" alt={"-x-"}></Image>
-                        <div className="name">HTLEL</div>
-                        <Link href={"/login"} className={"button-inverse px-16"}>get started</Link>
+                        <div className="name mx-8">HTLEL</div>
+                        <div className={"row w-full"}>
+                            <Link href={"/login"} className={"button w-1/2"}>get started</Link>
+                            <Link href={"#tutorial"} className={"button-inverse w-1/2"}>Info</Link>
+                        </div>
                     </div>
                 </section>
                 <section className={"flex-center w-full"}>
                     <div className={"card-outline-container"}>
-                        <h1>How does it work?</h1>
+                        <h1 id={"tutorial"}>How does it work?</h1>
                         <h3>Tutorial here</h3>
                     </div>
                 </section>
@@ -33,6 +36,7 @@ export default async function Home() {
         )
     }
 
+    // @ts-ignore
     return (
         <main>
             <section className="column mt-4">
