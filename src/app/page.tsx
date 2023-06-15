@@ -2,7 +2,7 @@ import React from "react";
 import {createClient} from "@/lib/supabase-server";
 import Image from "next/image";
 import Link from "next/link";
-import Card from "@/components/Card";
+import CardDisplay from "@/components/Collectible/CardDisplay";
 
 export default async function Home() {
     const supabase = createClient();
@@ -36,19 +36,41 @@ export default async function Home() {
         )
     }
 
-    // @ts-ignore
+    let card_collection = await supabase
+        .from('collectibles')
+        .select('card_id,count')
+        .eq('user_id', user.id)
+    let shard_collection = await supabase
+        .from('shards')
+        .select('card_id,piece_id,count')
+        .eq('user_id', user.id)
+
+    if (card_collection.data && !card_collection.error && card_collection.data.length > 0) {
+        let cards = []
+        for (const item of card_collection.data) {
+            let card = await supabase.from('card').select('*').eq('id', item.card_id)
+            cards.push(card)
+        }
+        //console.log(cards.map( card => card.data?.pop()))
+        return (
+            <main>
+                <section className="column mt-4">
+                    <h2>Your Cards:</h2>
+                    <div className="grid-container">
+                        {cards.map((item, index) => (
+                            <CardDisplay key={index} data={item.data} error={item.error}></CardDisplay>
+                        ))}
+                    </div>
+                </section>
+            </main>
+        )
+    }
     return (
         <main>
             <section className="column mt-4">
                 <h2>Your Cards:</h2>
-                <div className="grid-container">
-                    <Card id={'7598102c-0883-4563-bc97-631451fe7487'}/>
-                    <Card id={'b6c6ddc6-3429-4a47-be89-3e7b784e083c'}/>
-                    <Card id={'b6c6ddc6-3429-4a47-be89-3e7b784e083c'}/>
-                </div>
+                <h3>You havent collected any Cards yet!</h3>
             </section>
         </main>
     )
-
-
 }

@@ -1,5 +1,5 @@
 import {createClient} from "@/lib/supabase-server";
-import Link from "next/link";
+import {redirect} from "next/navigation";
 
 export default async function Page({params}: { params: { id: string } }) {
     const supabase = createClient();
@@ -9,14 +9,7 @@ export default async function Page({params}: { params: { id: string } }) {
     } = await supabase.auth.getUser();
 
     if (!user) {
-        return (
-            <section className={"flex-center"}>
-                <div className={"column gap-1"}>
-                    <h1>You need to be Signed In to proceed</h1>
-                    <Link href={"/login"} className={"link"}>Sign In</Link>
-                </div>
-            </section>
-        );
+        redirect("/draw")
     }
 
 

@@ -7,11 +7,11 @@ import SignOut from "@/components/Auth/SignOut";
 import Image from "next/image";
 
 export default function Nav() {
-    const {user, singOut} = useAuth();
+    const {user} = useAuth();
 
     return (
         <header
-            className={"p-4 flex justify-between bg-transparent sticky top-0 z-50 backdrop-blur-md rounded-b-lg"}>
+            className={"p-4 flex justify-between bg-black opacity-70 sticky top-0 z-50 backdrop-blur-sm"}>
             <div className={"space-x-6 flex items-center"}>
                 <Link className={"text-lg leading-none"} href={"/"}>
                     <Image src="/htlel.svg" width={36} height={36} className="screen-icon" alt={"Home"}></Image>

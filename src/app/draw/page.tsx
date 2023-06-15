@@ -1,14 +1,21 @@
-import {createClient} from "@/lib/supabase-server";
+'use client'
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import {Field, Form, Formik} from "formik";
+import cn from "classnames";
+import * as Yup from "yup";
+import {useAuth} from "@/components/Auth/AuthProvider";
+import {useRouter} from "next/navigation";
 
-export default async function Page({params}: { params: { id: string } }) {
-    const supabase = createClient();
+const CodeSchema = Yup.object().shape({
+    code: Yup.number().max(999999).min(0).required('required')
+});
 
-    const {
-        data: {user}
-    } = await supabase.auth.getUser()
+export default async function Page() {
+    const {user} = useAuth()
+    const router = useRouter()
 
     if (!user) {
         return (
@@ -49,10 +56,29 @@ export default async function Page({params}: { params: { id: string } }) {
         );
     }
 
+    async function onSubmit(formData: any) {
+        router.push(`/draw/${formData.code}`)
+    }
+
     return (
         <section className={"flex-center w-full"}>
             <div className={"card-outline-container"}>
-                <h1>Enter manually:</h1>
+                <h2>Enter Code:</h2>
+                <Formik initialValues={{code: ""}} validationSchema={CodeSchema} onSubmit={onSubmit}>
+                    {({errors, touched}) => (
+                        <Form className={"column gap-1 w-full"}>
+                            <label htmlFor={"code"}>Code:</label>
+                            <Field
+                                className={cn('input w-full', errors.code && touched.code && 'border-red-600')}
+                                name="code"
+                                type="text"
+                                placeholder={"123456"}
+                            />
+                            {errors.code && touched.code ? (
+                                <div className={"text-red-600"}>{errors.code}</div>) : null}
+                        </Form>
+                    )}
+                </Formik>
             </div>
         </section>
     );
