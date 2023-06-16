@@ -3,35 +3,46 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
-  --true-blue: #0466c8ff;
-  --sapphire: #0353a4ff;
-  --yale-blue: #023e7dff;
-  --oxford-blue: #002855ff;
-  --oxford-blue-2: #001845ff;
-  --oxford-blue-3: #001233ff;
-  --delft-blue: #33415cff;
-  --paynes-gray: #5c677dff;
-  --slate-gray: #7d8597ff;
-  --cool-gray: #979dacff;
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 2, 3, 5;
+    --true-blue: #0466c8ff;
+    --sapphire: #0353a4ff;
+    --yale-blue: #023e7dff;
+    --oxford-blue: #002855ff;
+    --oxford-blue-2: #001845ff;
+    --oxford-blue-3: #001233ff;
+    --delft-blue: #33415cff;
+    --paynes-gray: #5c677dff;
+    --slate-gray: #7d8597ff;
+    --cool-gray: #979dacff;
+
+    --blue-rgb: 33 150 243;
+    --primary-rgb: var(--blue-rgb);
+
+    --blob-color-1: rgb(var(--blue-rgb));
+    --blob-color-2: dodgerblue;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-rgb: 0, 0, 0;
-  }
-}
+    :root {
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb))
+    }
 }
 
 @layer base {
+    * {
+        box-sizing: border-box;
+    }
+
     body {
+        color: rgb(var(--foreground-rgb));
+        background: rgb(var(--background-rgb));
+        font-family: Arial, Helvetica, sans-serif;
         @apply overflow-x-hidden
+    }
+
+    h1 {
+        @apply py-4 text-6xl
     }
 
     h2 {
@@ -41,59 +52,221 @@ body {
     h3 {
         @apply py-4 text-2xl;
     }
+
+    ul {
+        @apply max-w-md space-y-4
+    }
+
+    li {
+        @apply flex items-center justify-start
+    }
 }
 
 @layer components {
     .button {
-        @apply custom-focus p-2 rounded-md bg-green-400 text-sm text-white hover:bg-green-500 duration-300;
+        @apply custom-focus p-2 rounded-md bg-primary-500 text-sm text-center text-white hover:bg-primary-600 duration-300;
     }
 
     .button-inverse {
-        @apply custom-focus p-2 rounded-md bg-transparent text-sm text-green-400 border-2 border-green-400 hover:bg-green-400 hover:text-white hover:dark:text-black;
+        border: 1px solid;
+        @apply custom-focus p-2 rounded-md bg-transparent text-center text-sm text-primary-500 border-primary-500 hover:bg-primary-500 hover:text-white;
     }
 
+    .card-container {
+        @apply column bg-zinc-800 rounded-md shadow-xl p-5 min-w-[20rem] shadow-zinc-950 text-white;
+    }
 
-    .card {
-        @apply column bg-zinc-800 flex rounded-md shadow-xl shadow-zinc-100 p-5 min-w-[20rem] dark:shadow-zinc-950 text-white;
+    .card-outline-container {
+        border: 1px solid rgb(var(--primary-rgb) / 50%);
+        @apply column bg-transparent rounded-md p-5 min-w-[20-rem] m-4
     }
 
     .column {
-        @apply flex flex-col items-start justify-center gap-4;
+        @apply flex flex-col items-start gap-4;
     }
 
     .custom-focus {
-        @apply focus:border-green-400 focus:outline-none focus:ring-1 focus:ring-green-400;
+        @apply focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500;
     }
 
-  .heading {
-    @apply text-lg font-semibold text-gray-700;
-  }
+    .heading {
+        @apply text-lg font-semibold text-gray-700;
+    }
 
-  .highlight {
-    @apply ml-1 rounded-lg bg-zinc-100 text-black p-2 font-mono dark:bg-zinc-900 dark:text-white;
-  }
+    .highlight {
+        @apply rounded-lg bg-zinc-100 text-black p-2 font-mono dark:bg-zinc-900 dark:text-white;
+    }
 
-  .error {
-    @apply w-full text-center text-red-600;
-  }
+    .error {
+        @apply w-full text-center text-red-600;
+    }
 
-  .input {
-    @apply custom-focus p-2 rounded-md border-gray-500 bg-transparent text-sm text-gray-500;
-  }
+    .input {
+        @apply custom-focus p-2 rounded-md border-gray-500 bg-transparent text-sm text-gray-500;
+    }
 
-  .input-error {
-    @apply input border-red-600
-  }
+    .input-error {
+        @apply input border-red-600
+    }
 
-  .link {
-    @apply rounded-md text-green-400 underline text-sm;
-  }
+    .link {
+        @apply rounded-md text-primary-500 underline text-sm;
+    }
 
-  .row {
-    @apply flex flex-row items-center justify-start gap-1;
-  }
+    .row {
+        @apply flex flex-row items-center justify-start gap-1;
+    }
 
-  .flex-center {
-    @apply flex items-center justify-center;
-  }
+    .flex-center {
+        @apply flex items-center justify-center;
+    }
+
+    .grid-container {
+        @apply grid gap-3 grid-flow-row md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 p-3
+    }
+
+    .indicator {
+        @apply bg-amber-600 rounded-full flex justify-center items-center w-6 text-white
+    }
+
+    @keyframes pan-overlay {
+        from {
+            background-position: 0% 0%;
+        }
+
+        to {
+            background-position: 0% -100%;
+        }
+    }
+
+    .screen-overlay {
+        background: linear-gradient(
+                rgb(var(--primary-rgb) / 0.15),
+                rgb(var(--primary-rgb) / 0.15) 3px,
+                transparent 3px,
+                transparent 9px
+        );
+        background-size: 100% 9px;
+        height: 100%;
+        width: 100%;
+        animation: pan-overlay 22s infinite linear;
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        top: 0;
+    }
+
+    @keyframes pan-image {
+        0% {
+            background-position: 36% 42%;
+            background-size: 200%;
+        }
+
+        20% {
+            background-position: 30% 35%;
+            background-size: 200%;
+        }
+
+        20.0001% { /* -- View 2 -- */
+            background-position: 60% 85%;
+            background-size: 500%;
+        }
+
+        40% {
+            background-position: 49% 81%;
+            background-size: 500%;
+        }
+
+        40.0001% { /* -- View 3 -- */
+            background-position: 80% 42%;
+            background-size: 300%;
+        }
+
+        60% {
+            background-position: 84% 33%;
+            background-size: 300%;
+        }
+
+        60.0001% { /* -- View 4 -- */
+            background-position: 0% 0%;
+            background-size: 300%;
+        }
+
+        80% {
+            background-position: 15% 4%;
+            background-size: 300%;
+        }
+
+        80.0001% { /* -- View 5 -- */
+            background-position: 80% 10%;
+            background-size: 300%;
+        }
+
+        100% {
+            background-position: 72% 14%;
+            background-size: 300%;
+        }
+    }
+
+    .screen-image {
+        background-image: url("https://hzvtlwbfqvmrppbgpopu.supabase.co/storage/v1/object/public/card_images/WIJU_1.png");
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        background-size: 300%;
+        background-position: 0% 0%;
+        filter: sepia(100%) hue-rotate(160deg);
+        opacity: 0.6;
+        animation: pan-image 15s linear infinite;
+    }
+
+    .screen-content {
+        gap: 4rem;
+        margin: 1rem;
+        border: 1px solid rgb(var(--primary-rgb) / 50%);
+        @apply column justify-end z-10 items-center rounded-lg flex-1 py-9 px-4
+    }
+
+    .screen-icon {
+        color: white;
+        font-size: 4rem;
+        text-shadow: 0 0 0.5rem white;
+    }
+
+    .screen-user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        position: relative;
+    }
+
+    .name {
+        position: relative;
+        font-size: 4.25rem;
+        font-weight: 400;
+    }
+
+    .name:before,
+    .name:after {
+        content: "";
+        height: 4px;
+        width: 4px;
+        position: absolute;
+        border: 2px solid white;
+        border-radius: 2px;
+    }
+
+    .name:before {
+        top: 55%;
+        right: -1.5rem;
+    }
+
+    .name:after {
+        top: 45%;
+        left: -1.5rem;
+    }
 }
