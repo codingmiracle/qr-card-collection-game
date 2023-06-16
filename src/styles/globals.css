@@ -73,7 +73,7 @@
     }
 
     .card-container {
-        @apply column bg-zinc-800 m-4 rounded-md shadow-xl p-5 min-w-[20rem] shadow-zinc-950 text-white;
+        @apply column bg-zinc-800 rounded-md shadow-xl p-5 min-w-[20rem] shadow-zinc-950 text-white;
     }
 
     .card-outline-container {
@@ -82,7 +82,7 @@
     }
 
     .column {
-        @apply flex flex-col items-start justify-center gap-4;
+        @apply flex flex-col items-start gap-4;
     }
 
     .custom-focus {
@@ -123,6 +123,10 @@
 
     .grid-container {
         @apply grid gap-3 grid-flow-row md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 p-3
+    }
+
+    .indicator {
+        @apply bg-amber-600 rounded-full flex justify-center items-center w-6 text-white
     }
 
     @keyframes pan-overlay {

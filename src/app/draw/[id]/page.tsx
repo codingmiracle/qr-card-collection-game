@@ -9,7 +9,7 @@ export default async function Page({params}: { params: { id: string } }) {
     } = await supabase.auth.getUser();
 
     if (!user) {
-        redirect("/draw")
+        redirect("/")
     }
 
 

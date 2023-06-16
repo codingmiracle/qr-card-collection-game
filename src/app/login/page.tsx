@@ -56,6 +56,9 @@ export default function Home() {
                             </svg>
                             <p>Collect the Shards and puzzle the Cards together</p>
                         </li>
+                        <li>
+                            <Link href={"/"} className={"button-inverse w-full"}>View Collection</Link>
+                        </li>
                     </ul>
 
                     <button type="button" className="button w-full" onClick={signOut}>

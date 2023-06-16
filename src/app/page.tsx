@@ -3,12 +3,14 @@ import {createClient} from "@/lib/supabase-server";
 import Image from "next/image";
 import Link from "next/link";
 import CardDisplay from "@/components/Collectible/CardDisplay";
+import ShardDisplay from "@/components/Collectible/ShardDisplay";
 
 export default async function Home() {
     const supabase = createClient();
 
     const {
-        data: {user}
+        data: {user},
+        error
     } = await supabase.auth.getUser()
 
     if (!user) {
@@ -40,36 +42,41 @@ export default async function Home() {
         .from('collectibles')
         .select('card_id,count')
         .eq('user_id', user.id)
-    let shard_collection = await supabase
-        .from('shards')
-        .select('card_id,piece_id,count')
-        .eq('user_id', user.id)
+    let incomplete_card_collection = await supabase.rpc('select_incomplete_cards', {'uid': user.id})
+    let cards = []
+    let shards = []
 
-    if (card_collection.data && !card_collection.error && card_collection.data.length > 0) {
-        let cards = []
+    if (card_collection.data && !card_collection.error) {
         for (const item of card_collection.data) {
             let card = await supabase.from('card').select('*').eq('id', item.card_id)
             cards.push(card)
         }
-        //console.log(cards.map( card => card.data?.pop()))
-        return (
-            <main>
-                <section className="column mt-4">
-                    <h2>Your Cards:</h2>
+    }
+    if (incomplete_card_collection.data && !incomplete_card_collection.error) {
+        for (const cardId of incomplete_card_collection.data) {
+            let [shardList] = await Promise.all([supabase.from('shards').select('card_id,piece_id,count').eq('card_id', cardId)])
+            let card = await supabase.from('card').select('*').eq('id', cardId)
+            shards.push({cardData: card, shardList: shardList})
+        }
+    }
+
+    return (
+        <main>
+            <section className="column mt-4 flex-center">
+                <div className={"card-outline-container p-0"}>
+                    <h2 className={"w-full pl-4 pb-2 border-primary-600 border-b"}>Your Cards:</h2>
                     <div className="grid-container">
                         {cards.map((item, index) => (
                             <CardDisplay key={index} data={item.data} error={item.error}></CardDisplay>
                         ))}
                     </div>
-                </section>
-            </main>
-        )
-    }
-    return (
-        <main>
-            <section className="column mt-4">
-                <h2>Your Cards:</h2>
-                <h3>You havent collected any Cards yet!</h3>
+                    <h2 className={"w-full pl-4 pb-2 border-primary-600 border-b border-t"}>Your Shards:</h2>
+                    <div className="grid-container">
+                        {shards.map((item, index) => (
+                            <ShardDisplay key={index} cardData={item.cardData} shardList={item.shardList}/>
+                        ))}
+                    </div>
+                </div>
             </section>
         </main>
     )
