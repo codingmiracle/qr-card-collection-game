@@ -1,0 +1,1 @@
+vc-domain-verify=htlel.at,5cc04d58c973462f879d
