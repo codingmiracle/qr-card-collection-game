@@ -117,6 +117,29 @@
         @apply flex flex-row items-center justify-start gap-1;
     }
 
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+}
+
+.grid-dense {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-rows: repeat(auto-fit, 380px);
+  grid-auto-flow: dense;
+  grid-gap: 0.3rem;
+  align-items: center;
+}
+
+.zoom {
+  transition: transform .2s;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.5);
+
     .flex-center {
         @apply flex items-center justify-center;
     }
@@ -269,4 +292,5 @@
         top: 45%;
         left: -1.5rem;
     }
+
 }
