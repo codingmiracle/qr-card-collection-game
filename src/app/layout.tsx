@@ -1,13 +1,13 @@
 import '../styles/globals.css'
-import {Inter} from 'next/font/google'
+import {Montserrat} from 'next/font/google'
 import React from "react";
 import {AuthProvider} from "@/components/Auth/AuthProvider";
 import {createClient} from "@/lib/supabase-server";
-import Header from "@/app/header";
+import Nav from "@/components/Nav";
 
-const inter = Inter({subsets: ['latin'], preload: true, weight: "300"})
+const montserrat = Montserrat({subsets: ['latin'], preload: true, weight: "500"})
 
-export default async function RootLayout({children,}: {
+export default async function RootLayout({children}: {
     children: React.ReactNode
 }) {
     const supabase = createClient();
@@ -15,6 +15,10 @@ export default async function RootLayout({children,}: {
     const {
         data: {session},
     } = await supabase.auth.getSession();
+
+    const {
+        data: {user},
+    } = await supabase.auth.getUser();
 
     const accessToken = session?.access_token || null;
 
@@ -25,15 +29,12 @@ export default async function RootLayout({children,}: {
             <link rel="icon" href="favicon.ico"/>
             <meta name="viewport" content="width=device-width"/>
         </head>
-        <body className={inter.className}>
-        <Header/>
-        <h1 className="mb-12 text-5xl sm:text-6xl">
-            Title <span className="font-black text-green-400"> Highlight </span>
-        </h1>
+        <body className={montserrat.className}>
         <AuthProvider accessToken={accessToken}>
+            <Nav></Nav>
             {children}
         </AuthProvider>
         </body>
         </html>
-  )
+    )
 }
