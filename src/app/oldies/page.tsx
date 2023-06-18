@@ -1,7 +1,6 @@
 import Loader from "@/components/Loader/Loader";
 import { link } from "fs";
 
-import {ImageGridItem} from "@/app/oldies/grid";
 
 export default function ScreenAnimation()
 {
