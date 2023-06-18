@@ -1,3 +1,6 @@
+import { exec } from "child_process"
+import { Component } from "react"
+
 function ImageGridItem({ image }) {
     const style = {
       gridColumnEnd: `span ${getSpanEstimate(image.width)}`,
@@ -13,4 +16,10 @@ function ImageGridItem({ image }) {
     }
   
     return 1
+  }
+
+
+  export function ImageGridItem()
+  {
+    
   }

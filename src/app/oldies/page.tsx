@@ -1,6 +1,8 @@
 import Loader from "@/components/Loader/Loader";
 import { link } from "fs";
 
+import {ImageGridItem} from "@/app/oldies/grid";
+
 export default function ScreenAnimation()
 {
     return(
@@ -408,14 +410,92 @@ export default function ScreenAnimation()
                 <img src="https://media.discordapp.net/attachments/834357802343727154/1119943735153807360/stei4.png"/>
             </div>
             <div className="zoom">
+                <img src="https://cdn.discordapp.com/attachments/588314026321117184/1119977148820766800/20230125_101146.jpg"/>
+            </div>
+            <div className="zoom">
+                <img src="https://cdn.discordapp.com/attachments/588314026321117184/1119977272036823071/20230302_073059.jpg"/>
+            </div>
+            <div className="zoom">
+                <img src="https://media.discordapp.net/attachments/834357802343727154/1119988312560635995/190129466_1067125980485938_5600195189040306374_n.jpg?width=683&height=683"/>
+            </div>
+            <div className="zoom">
+                <img src="https://media.discordapp.net/attachments/834357802343727154/1119988313483391117/332693136_1557335088013629_6284598947615052489_n.jpg?width=740&height=683"/>
+            </div>
+            <div className="zoom">
+                <img src="https://media.discordapp.net/attachments/834357802343727154/1119988313781194752/332075579_883942479326256_1363530193311035746_n.jpg?width=740&height=683"/>
+            </div>
+            <div className="zoom">
                 <video src="https://cdn.discordapp.com/attachments/834357802343727154/1062292345485275206/20230110_094522.mp4" controls loop muted/>
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/959503693953249330/VID-20220329-WA0000.mp4" controls loop/>
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/909531619604443217/VID-20211112-WA0001.mp4" controls loop/>
             </div>
             <div className="zoom">
                 <video src="https://cdn.discordapp.com/attachments/834357802343727154/1047560648646725632/WhatsApp_Video_2022-11-30_at_14.36.16.mp4" controls loop muted/>
             </div>
             <div className="zoom">
                 <video src="https://cdn.discordapp.com/attachments/834357802343727154/935585589871382548/VID-20220125-WA0001.mp4" controls loop muted/>            
-        </div></
-        div>
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/909531419104120873/VID-20201111-WA0020.mp4" controls loop/>            
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/1119943006376702013/IMG_3994.mp4" controls loop/>            
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/1119943006720638976/IMG_3879.mp4" controls loop/>            
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/1119943007005843516/IMG_3886.mp4" controls loop/>            
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/1119943007278477372/IMG_3982.mp4" controls loop/>            
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/1119943007530139709/IMG_3983.mp4" controls loop/>            
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/1119943007886647296/IMG_3984.mp4" controls loop/>            
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/1119943008264138822/IMG_3985.mp4" controls loop/>            
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/1119943008557744158/IMG_3986.mp4" controls loop/>            
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/1119943031605448755/IMG_3996.mp4" controls loop/>            
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/1119943031907418172/IMG_3997.mp4" controls loop/>            
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/1119943032251363338/IMG_3998.mp4" controls loop/>            
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/1119943032582721566/IMG_40011.mp4" controls loop/>            
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/1119943033220255784/IMG_4003.mp4" controls loop/>            
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/1119943033459310643/IMG_4004.mp4" controls loop/>            
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/1119943033719369801/IMG_4005.mp4" controls loop/>            
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/1119943046126116894/WhatsApp_Video_2021-03-19_at_20.17.51.mp4" controls loop/>            
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/1119943046570705016/IMG_4006.mp4" controls loop/>            
+            </div>
+            <div className="zoom">
+                <video src="https://cdn.discordapp.com/attachments/834357802343727154/1119943046893674566/WhatsApp_Video_2021-03-11_at_18.35.39.mp4" controls loop/>            
+            </div>
+        </div>
     )
 }
