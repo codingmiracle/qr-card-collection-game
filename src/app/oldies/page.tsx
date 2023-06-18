@@ -181,9 +181,6 @@ export default function ScreenAnimation()
                 <img src="https://cdn.discordapp.com/attachments/834357802343727154/909531419104120873/VID-20201111-WA0020.mp4"/>
             </div>
             <div className="zoom">
-                <img src="https://media.discordapp.net/attachments/834357802343727154/905803590566817832/20211104_135923.jpg?width=384&height=683"/>
-            </div>
-            <div className="zoom">
                 <img src="https://media.discordapp.net/attachments/834357802343727154/895252908361265152/IMG-20211006-WA0000.jpg?width=512&height=683"/>
             </div>
             <div className="zoom">
