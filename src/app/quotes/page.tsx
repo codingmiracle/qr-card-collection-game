@@ -1,5 +1,3 @@
-import Loader from "@/components/Loader/Loader";
-
 export default function QuotesPage()
 {
     return(
@@ -7,7 +5,7 @@ export default function QuotesPage()
             <section className="flex-center">
                 <div className="column w-1/2">
                     <div className="highlight w-full">
-                        Lehrer1: Ah, da Schüler1! Wie geht's im Vodan?
+                        Lehrer1: Ah, da Schüler1! Wie geht&apos;s im Vodan?
                     </div>
                     <div className="highlight w-full text-right">
                         Lehrer1: Vorm PC verdienst ja nur 500€ im Monat.<br />
@@ -37,7 +35,7 @@ export default function QuotesPage()
                         Lehrer2: Ich mein... ich steh auch auf Röhren...
                     </div>
                     <div className="highlight w-full">
-                        Lehrer2: Also, ich weiß ja nicht wie du das verstehst, aber "Frau Professor <i>Lehrerin1</i> ist gekommen", das ist für mich mehrdeutig.    
+                        Lehrer2: Also, ich weiß ja nicht wie du das verstehst, aber &quot;Frau Professor <i>Lehrerin1</i> ist gekommen&quot;, das ist für mich mehrdeutig.    
                     </div>
                     <div className="highlight w-full text-right">
                         Lehrer2: Die Alternative warad daun Löwenbändiger zu werden.
@@ -109,9 +107,9 @@ export default function QuotesPage()
                     </div>
                     <div className="highlight w-full text-right">
                         <i>Schüler sammelt Informationen über Eigenschaften, die die potenzielle Partnerin haben sollte, um am HTL Ball Ausschau zu halten und es is extrem laut.</i><br />
-                        Lehrer2 kommt aus'm Lehrerzimmer: Geht des a bissl leiser? Mia woin do schlofa im Lehrerzimmer, oba des geht ned wauns so laut is..<br />
-                        Schüler2 flüstert aggressiv "schleich di"<br />
-                        Lehrer2: "Ha! So iss scho bessa."
+                        Lehrer2 kommt aus&apos;m Lehrerzimmer: Geht des a bissl leiser? Mia woin do schlofa im Lehrerzimmer, oba des geht ned wauns so laut is..<br />
+                        Schüler2 flüstert aggressiv &quot;schleich di&quot;<br />
+                        Lehrer2: &quot;Ha! So iss scho bessa.&quot;
                     </div>
                     <div className="highlight w-full">
                         Schüler2 zu Lehrer2 : Im Gym hättens mich umgebracht für die Präsentation.<br />
@@ -164,8 +162,8 @@ export default function QuotesPage()
                         <i>Sexpuppe mim USB-C Kabel ausm Fenster ghängt, Lehrerin5 steht unten und macht Foto</i><br />
                         Lehrer3: Wos is, hobts fesche Menscha gseng?<br />
                         <i>Sieht Lehrerin5</i><br />
-                        Na, doch ned. Die is z'oid für eich. Des kinnt de Oma sei.<br />
-                        Jeder hat seinen Geschmack. Wenn do Hak Damen unten wären dad i's verstehn...
+                        Na, doch ned. Die is z&apos;oid für eich. Des kinnt de Oma sei.<br />
+                        Jeder hat seinen Geschmack. Wenn do Hak Damen unten wären dad i&apos;s verstehn...
                     </div>
                     <div className="highlight w-full">
                         Irgendwer: <i>Lehrerin5.com</i><br />
@@ -261,7 +259,7 @@ export default function QuotesPage()
                         <i>geht aus dem Raum</i>
                     </div>
                     <div className="highlight w-full text-right">
-                        Schüler10 und Schüler3: Wir haben's aufgebaut aber wir haben nen Kurzen...<br />
+                        Schüler10 und Schüler3: Wir haben&apos;s aufgebaut aber wir haben nen Kurzen...<br />
                         Lehrer6: Das tut mir leid für euch, ich hab an Langen.
                     </div>
                     <div className="highlight w-full">
@@ -280,7 +278,7 @@ export default function QuotesPage()
                     </div>
                     <div className="highlight w-full">
                         <i>Lehrer6 sieht leicht bekleidete Asiatin als Wallpaper</i><br />
-                        Des is a Gude. Wie haßt'n die?
+                        Des is a Gude. Wie haßt&apos;n die?
                     </div>
                     <div className="highlight w-full text-right">
                         Lehrer6: Stellts euch vor, heute Nacht is mein Bett zambrochen...
@@ -305,7 +303,7 @@ export default function QuotesPage()
                     <div className="highlight w-full text-right">
                         <i>Essen im Laborraum</i><br />
                         <i>Lehrer7 zuckt aus</i><br />
-                        Lehrer8: "Lassts euch schmecken!"
+                        Lehrer8: &quot;Lassts euch schmecken!&quot;
                     </div>
                     <div className="highlight w-full">
                         Lehrer8: Alles ist gut und frei, solange wir nicht von den Chinesen belagert werden.
@@ -493,7 +491,7 @@ export default function QuotesPage()
                         <i>Lehrer15 Unterricht: Schüler1 sucht nach komischen Amazonbewertungen:</i> Willst an Gurkenhobel?
                     </div>
                     <div className="highlight w-full">
-                        Lehrer16: Im "Laura" kann ich Folgendes machen...
+                        Lehrer16: Im &quot;Laura&quot; kann ich Folgendes machen...
                     </div>
                     <div className="highlight w-full text-right">
                         Lehrer16: Der Vorteil ist, du dasaufst ned in der IT wennst was ned konnst.
@@ -514,7 +512,7 @@ export default function QuotesPage()
                     </div>
                     <div className="highlight w-full text-right">
                         <i>Lehrer18 steckt Maus an Laptop an</i><br />
-                        <i>Anime Moan startet</i>: ...aber süß"
+                        <i>Anime Moan startet</i>: ...aber süß&quot;
                     </div>
                     <div className="highlight w-full">
                         Schüler1: Sie haben mir den Text vom Schüler2 auch gegeben <br />
@@ -728,13 +726,13 @@ export default function QuotesPage()
                         Schüler10 zu Schüler4: Wofür brauchst du die volle Leistung bei deiner Oma?
                     </div>
                     <div className="highlight w-full text-right">
-                        Schüler11: Leute die in Onlyfans investieren haben nie gelernt, dass man auf Google "große Titten" eingeben kann.
+                        Schüler11: Leute die in Onlyfans investieren haben nie gelernt, dass man auf Google &quot;große Titten&quot; eingeben kann.
                     </div>
                     <div className="highlight w-full">
                         Lehrer: Der schaut aus ois hättns na dierekt vo da Kinderschoklad owakrotzt...
                     </div>
                     <div className="highlight w-full text-right">
-                        Englisch Native Speaker: Well, that's the end I guess...
+                        Englisch Native Speaker: Well, that&apos;s the end I guess...
                     </div>
                     
                 </div>
