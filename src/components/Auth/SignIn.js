@@ -26,7 +26,7 @@ const SignIn = () => {
     }
 
     return (<section className={"flex-center"}>
-        <div className="card">
+        <div className="card-container">
             <h3 className={"w-full"}>Sign In</h3>
             <Formik initialValues={{
                 email: '', password: ''

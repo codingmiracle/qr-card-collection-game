@@ -26,7 +26,7 @@ const UpdatePassword = () => {
 
     return (
         <section className={"flex-center"}>
-            <div className="card">
+            <div className="card-container">
                 <h3>Update Password</h3>
                 <Formik
                     initialValues={{
