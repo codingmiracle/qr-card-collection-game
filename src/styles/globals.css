@@ -269,4 +269,9 @@
         top: 45%;
         left: -1.5rem;
     }
+
+    .shard-title {
+        transform: translate(0, 100%);
+        z-index: 5;
+    }
 }

@@ -3,6 +3,14 @@ import {redirect} from "next/navigation";
 import {maxPieces} from "@/components/Collectible/utils";
 import ShardDto from "@/service/draw/shard.dto";
 import supabase from "@/service/supabase/supabase-browser";
+import Image from "next/image";
+import common_reveal from '../../../../public/shard-reveal-common.png'
+import rare_reveal from '../../../../public/shard-reveal-rare.png'
+import legendary_reveal from '../../../../public/shard-reveal-legendary.png'
+import qm_placeholder from '../../../../public/qm_placeholder.png'
+import {Simulate} from "react-dom/test-utils";
+import {DataIsUndefinedError} from "@/service/exceptions";
+
 
 export async function getRandomShardForUser(user: any, rarity: number) {
     let randomCard: any;
@@ -22,7 +30,7 @@ export async function getRandomShardForUser(user: any, rarity: number) {
     const incompleteCards = await supabase
         .rpc('select_incomplete_cards', {'uid': user.id})
 
-    if (!cardList.data) return undefined
+    if (!cardList.data) throw DataIsUndefinedError
 
     let notCollectedCards = cardList.data?.filter(card => !collectedCards.data?.map(collectedCard => collectedCard.card_id).includes(card.id))
 
@@ -125,6 +133,20 @@ export async function addCard(cardId: string, userId: string) {
 export default async function Page({params}: { params: { id: string } }) {
     const supabase = createClient();
 
+    const renderShardImage = (rarity: number) => {
+        console.log(rarity, typeof (rarity))
+        switch (rarity) {
+            case 0:
+                return (<Image src={common_reveal} alt={"Shard"} width={400} height={534}></Image>)
+            case 1:
+                return (<Image src={rare_reveal} alt={"Shard"} width={400} height={534}></Image>)
+            case 2:
+                return (<Image src={legendary_reveal} alt={"Shard"} width={400} height={534}></Image>)
+            default:
+                return (<Image src={qm_placeholder} alt={"?"} width={400} height={534}></Image>)
+        }
+    }
+
     const {
         data: {user},
     } = await supabase.auth.getUser();
@@ -149,19 +171,19 @@ export default async function Page({params}: { params: { id: string } }) {
     }
 
     shard = await getRandomShardForUser(user, qr.data.rarity)
-
+    let card = await supabase.rpc('select_card_by_id', {id: shard?.cardId})
+    console.log(card)
     return (
-        <section className={"flex-center"}>
-            <div className={"column gap-1"}>
-                {valid ? (<h3 className="highlight text-red-600">Invalid</h3>) : (
-                    <div className={"card-container"}>
-
-                    </div>
-                )}
-                {JSON.stringify(shard)}
-                {qr.error && (<h3 className={"highlight text-red-600"}>error: {qr.error.message}</h3>)}
-                {scan.error && (<h3 className={"highlight text-red-600"}>error: {scan.error.message}</h3>)}
-            </div>
+        <section className={"flex-center flex-col"}>
+            {valid ? (<h3 className="highlight text-red-600">Invalid</h3>) : (
+                <div className={"column gap-0"}>
+                    <h2 className={"w-full text-center shard-title"}>{card.data?.name}</h2>
+                    {renderShardImage(+qr.data.rarity)}
+                    <h2 className={"w-full text-center"}>#00000{shard?.pieceId}</h2>
+                </div>
+            )}
+            {qr.error && (<h3 className={"highlight text-red-600"}>error: {qr.error.message}</h3>)}
+            {scan.error && (<h3 className={"highlight text-red-600"}>error: {scan.error.message}</h3>)}
         </section>
     );
 }
