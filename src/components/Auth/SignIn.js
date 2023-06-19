@@ -2,7 +2,7 @@
 
 import {useState} from 'react';
 import {useAuth, VIEWS} from 'src/components/Auth/AuthProvider';
-import supabase from 'src/lib/supabase-browser';
+import supabase from 'src/service/supabase/supabase-browser';
 import {Field, Form, Formik} from "formik";
 import * as Yup from "yup";
 import cn from "classnames";

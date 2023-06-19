@@ -1,5 +1,5 @@
 import React from "react";
-import {createClient} from "@/lib/supabase-server";
+import {createClient} from "@/service/supabase/supabase-server";
 import Image from "next/image";
 import Link from "next/link";
 import CardDisplay from "@/components/Collectible/CardDisplay";
