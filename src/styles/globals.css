@@ -94,7 +94,7 @@
     }
 
     .highlight {
-        @apply rounded-lg bg-zinc-100 text-black p-2 font-mono dark:bg-zinc-900 dark:text-white;
+        @apply rounded-lg p-2 font-mono bg-zinc-900 text-white;
     }
 
     .error {
@@ -293,4 +293,8 @@
         left: -1.5rem;
     }
 
+    .shard-title {
+        transform: translate(0, 100%);
+        z-index: 5;
+    }
 }

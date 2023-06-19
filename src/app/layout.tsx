@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import {Montserrat} from 'next/font/google'
 import React from "react";
 import {AuthProvider} from "@/components/Auth/AuthProvider";
-import {createClient} from "@/lib/supabase-server";
+import {createClient} from "@/service/supabase/supabase-server";
 import Nav from "@/components/Nav";
 
 const montserrat = Montserrat({subsets: ['latin'], preload: true, weight: "500"})

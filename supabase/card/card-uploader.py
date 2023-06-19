@@ -15,17 +15,17 @@ supabase: Client = create_client(url, key)
 for name in legendary:
     title = titles.get(name)
     res = supabase.table('card').insert(
-        {'img_link': f"{url}/storage/v1/object/public/card_images/{name}_1.png", 'title': title, 'rarity': 2}).execute()
+        {'img_link': f"{url}/storage/v1/object/public/card_images/{name}_1.png", 'title': title, 'name': name, 'rarity': 2}).execute()
     print(res, res)
 
 for name in rare:
     title = titles.get(name)
     res = supabase.table('card').insert(
-        {'img_link': f"{url}/storage/v1/object/public/card_images/{name}_1.png", 'title': title, 'rarity': 1}).execute()
+        {'img_link': f"{url}/storage/v1/object/public/card_images/{name}_1.png", 'title': title, 'name': name, 'rarity': 1}).execute()
     print(res, res)
 
 for name in common:
     title = titles.get(name)
     res = supabase.table('card').insert(
-        {'img_link': f"{url}/storage/v1/object/public/card_images/{name}_1.png", 'title': title, 'rarity': 0}).execute()
+        {'img_link': f"{url}/storage/v1/object/public/card_images/{name}_1.png", 'title': title, 'name': name, 'rarity': 0}).execute()
     print(res, res)

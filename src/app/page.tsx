@@ -1,9 +1,10 @@
 import React from "react";
-import {createClient} from "@/lib/supabase-server";
+import {createClient} from "@/service/supabase/supabase-server";
 import Image from "next/image";
 import Link from "next/link";
 import CardDisplay from "@/components/Collectible/CardDisplay";
 import ShardDisplay from "@/components/Collectible/ShardDisplay";
+import placeholder from '../../public/qm_placeholder.png'
 
 export default async function Home() {
     const supabase = createClient();
@@ -63,18 +64,22 @@ export default async function Home() {
     return (
         <main>
             <section className="column mt-4 flex-center">
+                <div className={"card-container gap-0.5"}>
+                    <h2>Scan doesn&apos;t work:</h2>
+                    <Link href={"/draw"} className={"button-inverse w-full"}>Enter Code</Link>
+                </div>
                 <div className={"card-outline-container p-0"}>
                     <h2 className={"w-full pl-4 pb-2 border-primary-600 border-b"}>Your Cards:</h2>
                     <div className="grid-container">
-                        {cards.map((item, index) => (
+                        {cards.length ? cards.map((item, index) => (
                             <CardDisplay key={index} data={item.data} error={item.error}></CardDisplay>
-                        ))}
+                        )) : (<Image src={placeholder} alt={"?"} width={400} height={534}></Image>)}
                     </div>
                     <h2 className={"w-full pl-4 pb-2 border-primary-600 border-b border-t"}>Your Shards:</h2>
                     <div className="grid-container">
-                        {shards.map((item, index) => (
+                        {shards.length ? shards.map((item, index) => (
                             <ShardDisplay key={index} cardData={item.cardData} shardList={item.shardList}/>
-                        ))}
+                        )) : (<Image src={placeholder} alt={"?"} width={400} height={534}></Image>)}
                     </div>
                 </div>
             </section>

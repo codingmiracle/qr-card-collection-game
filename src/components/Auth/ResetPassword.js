@@ -6,7 +6,7 @@ import {Field, Form, Formik} from 'formik';
 import * as Yup from 'yup';
 
 import {useAuth, VIEWS} from 'src/components/Auth/AuthProvider';
-import supabase from 'src/lib/supabase-browser';
+import supabase from 'src/service/supabase/supabase-browser';
 
 const ResetPasswordSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
