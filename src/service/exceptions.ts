@@ -11,3 +11,10 @@ export class DataIsUndefinedError extends Error {
         this.name = "DataIsUndefinedError"
     }
 }
+
+export class AllCardsCollectedError extends Error {
+    constructor(message = "You have collected All Cards Possible") {
+        super(message);
+        this.name = "AllCardsCollectedError"
+    }
+}

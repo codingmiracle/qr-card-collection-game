@@ -13,13 +13,13 @@ export default async function Page({params}: { params: { id: string } }) {
     const renderShardImage = (rarity: number) => {
         switch (rarity) {
             case 0:
-                return (<Image src={common_reveal} alt={"Shard"} width={400} height={534}></Image>)
+                return (<Image src={common_reveal} alt={"Shard"} width={320} height={400}></Image>)
             case 1:
-                return (<Image src={rare_reveal} alt={"Shard"} width={400} height={534}></Image>)
+                return (<Image src={rare_reveal} alt={"Shard"} width={320} height={400}></Image>)
             case 2:
-                return (<Image src={legendary_reveal} alt={"Shard"} width={400} height={534}></Image>)
+                return (<Image src={legendary_reveal} alt={"Shard"} width={320} height={400}></Image>)
             default:
-                return (<Image src={qm_placeholder} alt={"?"} width={400} height={534}></Image>)
+                return (<Image src={qm_placeholder} alt={"?"} width={320} height={400}></Image>)
         }
     }
 
@@ -45,7 +45,7 @@ export default async function Page({params}: { params: { id: string } }) {
             ]);
         if (error) throw new Error(error.message)
         valid = true;
-        shard = await getRandomShardForUser(user, qr.data.rarity)
+        shard = await getRandomShardForUser(user, +qr.data.rarity)
         card = await supabase.rpc('select_card_by_id', {id: shard?.cardId})
     }
     return (

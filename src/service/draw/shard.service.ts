@@ -1,5 +1,5 @@
 import {createClient} from "@/service/supabase/supabase-server";
-import {DataIsUndefinedError} from "@/service/exceptions";
+import {AllCardsCollectedError, DataIsUndefinedError} from "@/service/exceptions";
 import {maxPieces} from "@/components/Collectible/utils";
 import ShardDto from "@/service/draw/shard.dto";
 import supabase from "@/service/supabase/supabase-browser";
@@ -9,22 +9,29 @@ export async function getRandomShardForUser(user: any, rarity: number) {
     let pieceId: any;
     let isComplete = false;
     const supabase = createClient()
-    const cardList = await supabase
+    const cardListData = supabase
         .from('card')
         .select('id, rarity')
         .eq('rarity', rarity);
 
-    const collectedCards = await supabase
+    const collectedCardsData = supabase
         .from('collectibles')
         .select('card_id')
         .eq('user_id', user.id);
 
-    const incompleteCards = await supabase
+    const incompleteCardsData = supabase
         .rpc('select_incomplete_cards', {'uid': user.id})
+
+    let [cardList,
+        collectedCards,
+        incompleteCards] = await Promise.all([cardListData,
+        collectedCardsData,
+        incompleteCardsData]);
 
     if (!cardList.data) throw DataIsUndefinedError
 
-    let notCollectedCards = cardList.data?.filter(card => !collectedCards.data?.map(collectedCard => collectedCard.card_id).includes(card.id))
+    let notCollectedCards = cardList.data?.filter(card => !collectedCards
+        .data?.map(collectedCard => collectedCard.card_id).includes(card.id))
 
     if (notCollectedCards) {
         if (notCollectedCards.length > 0) {
@@ -33,7 +40,7 @@ export async function getRandomShardForUser(user: any, rarity: number) {
             randomCard = cardList?.data.at(Math.floor(Math.random() * cardList.data.length));
         }
     } else {
-        randomCard = cardList?.data.at(Math.floor(Math.random() * cardList.data.length));
+        throw AllCardsCollectedError
     }
     if (incompleteCards.data.find(function (id: string) {
         return randomCard.id === id;
@@ -43,7 +50,8 @@ export async function getRandomShardForUser(user: any, rarity: number) {
             .eq('card_id', randomCard.id)
             .eq('user_id', user.id)
         if (shardList.data) {
-            if (shardList.data.length >= 7) {
+            console.log(shardList.data, shardList.data.length)
+            if (shardList.data.length >= (maxPieces(rarity) - 1)) {
                 isComplete = true
                 pieceId = Math.floor(Math.random() * (maxPieces(randomCard.rarity)))
             } else {
@@ -58,9 +66,10 @@ export async function getRandomShardForUser(user: any, rarity: number) {
     } else {
         pieceId = Math.floor(Math.random() * (maxPieces(randomCard.rarity)))
     }
+    console.log(isComplete, maxPieces(rarity), typeof rarity)
     await addShard(new ShardDto(randomCard.id, user.id, pieceId, 1))
     if (isComplete) {
-        await addCard(randomCard.id, user.id)
+        console.log(await addCard(randomCard.id, user.id))
     }
     return new ShardDto(randomCard.id, user.id, pieceId, 1)
 }
@@ -114,5 +123,5 @@ export async function addCard(cardId: string, userId: string) {
         .delete()
         .eq('card_id', cardId)
         .eq('user_id', userId)
-    return [res1, res2]
+    return await Promise.all([res1, res2])
 }
